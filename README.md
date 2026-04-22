@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=750&lines=AI+%2F+ML+Engineer+%26+Open-Source+Builder+%F0%9F%9A%80;SJTU+AI+%7C+Deep+Learning+%7C+Systems+Engineering;Adding+bricks+to+every+great+creation+%F0%9F%A7%B1;From+first+principles+to+production+systems)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=800&lines=AI+Engineer+%26+Open-Source+Builder+%F0%9F%9A%80;Deep+Learning+%7C+Recommendation+Systems+%7C+Full-Stack;SJTU+AI+%7C+From+first+principles+to+production;Adding+bricks+to+every+great+creation+%F0%9F%A7%B1)](https://git.io/typing-svg)
 
 [![GitHub followers](https://img.shields.io/github/followers/Finvoler?style=social&label=Follow)](https://github.com/Finvoler)&nbsp;
 ![Profile Views](https://komarev.com/ghpvc/?username=Finvoler&color=58A6FF&style=flat-square&label=Profile+Views)&nbsp;
@@ -14,7 +14,7 @@
 
 ## 🧠 About Me
 
-I'm an AI/ML engineer and open-source enthusiast currently studying at **Shanghai Jiao Tong University** (SJTU), School of Artificial Intelligence. My work spans from **first-principles algorithm implementations** to **production-grade full-stack AI applications**.
+I'm an AI engineer and open-source enthusiast studying at **Shanghai Jiao Tong University** (SJTU), School of Artificial Intelligence. My core focus is **Deep Learning**, **Recommendation Systems**, and **Full-Stack AI application engineering** — building things that work end-to-end, not just in notebooks.
 
 My guiding philosophy comes from a Chinese statesman's wisdom:
 
@@ -23,9 +23,10 @@ My guiding philosophy comes from a Chinese statesman's wisdom:
 
 I believe open-source is the lever that multiplies human creativity. Every commit, every PR, every well-documented repo is a brick in a cathedral someone else may finish — and that's enough reason to build carefully.
 
-- 🎓 **SJTU AI** — coursework, assignments, and implementations in deep learning, computer vision, and NLP
-- 🔧 **Tools & Systems** — production-ready projects I build to solve real problems end-to-end
-- 📖 **Notes & Resources** — curated course notes to help the next person learn faster
+- 🧬 **Deep Learning** — model architecture, training dynamics, TF↔PyTorch migration, GPU-accelerated inference
+- 🎯 **Recommendation Systems** — ranking models, embedding pipelines, and retrieval-augmented approaches
+- 🌐 **Full-Stack Engineering** — production AI apps with Next.js, TypeScript, Docker, and cloud APIs
+- 🎓 **SJTU AI Coursework** — sharing notes and implementations so the next person climbs faster
 
 ---
 
@@ -87,11 +88,14 @@ I believe open-source is the lever that multiplies human creativity. Every commi
 
 ---
 
-## 🏆 GitHub Trophies
+## 📦 GitHub Summary
 
 <div align="center">
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=Finvoler&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&row=1)](https://github.com/ryo-ma/github-profile-trophy)
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Finvoler&theme=github_dark" width="100%"/>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Finvoler&theme=github_dark" width="49%"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Finvoler&theme=github_dark" width="49%"/>
 
 </div>
 
