@@ -1,133 +1,142 @@
-# ai-virtual-tryon
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Finvoler&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=42&desc=功成不必在我，但功成必定有我&descSize=18&descAlignY=65&descColor=aaaaff" width="100%"/>
 
-> **Photorealistic virtual try-on in the browser.**
-> A production-grade Next.js 15 + Replicate (IDM-VTON) app that lets anyone
-> upload a human photo and a garment image and receive a generated try-on
-> in ~20 seconds — with strict file validation, async polling, typed
-> state machine, and one-command Docker deployment.
+<div align="center">
 
-[![CI](https://github.com/Finvoler/ai-virtual-tryon/actions/workflows/ci.yml/badge.svg)](https://github.com/Finvoler/ai-virtual-tryon/actions)
-![Next.js](https://img.shields.io/badge/next.js-15.3-black)
-![TypeScript](https://img.shields.io/badge/typescript-strict-3178C6)
-![Tailwind](https://img.shields.io/badge/tailwind-4-38bdf8)
-![License](https://img.shields.io/badge/license-MIT-green)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=750&lines=AI+%2F+ML+Engineer+%26+Open-Source+Builder+%F0%9F%9A%80;SJTU+AI+%7C+Deep+Learning+%7C+Systems+Engineering;Adding+bricks+to+every+great+creation+%F0%9F%A7%B1;From+first+principles+to+production+systems)](https://git.io/typing-svg)
 
-![screenshot placeholder](public/og.png)
+[![GitHub followers](https://img.shields.io/github/followers/Finvoler?style=social&label=Follow)](https://github.com/Finvoler)&nbsp;
+![Profile Views](https://komarev.com/ghpvc/?username=Finvoler&color=58A6FF&style=flat-square&label=Profile+Views)&nbsp;
+[![GitHub Stars](https://img.shields.io/github/stars/Finvoler?style=social)](https://github.com/Finvoler)
 
-## The problem this solves
+</div>
 
-E-commerce studios spend **thousands per SKU** on model photoshoots just to
-show how a garment looks on a body. The diffusion-model literature (IDM-VTON,
-OOTDiffusion, StableVITON…) has effectively solved the vision problem, but
-wiring it into a reliable consumer web app is still non-trivial:
+---
 
-* Replicate predictions are **asynchronous** — a naive `await replicate.run`
-  call in a Next.js API route will hit the serverless 10-second timeout.
-* Users upload **arbitrary files** — without strict size & MIME checks the
-  route happily base-64-encodes a 90 MB TIFF and crashes the container.
-* State management on the client is a **three-stage machine** (upload →
-  processing → result → error) that most demos implement with a tangle of
-  booleans.
+## 🧠 About Me
 
-This repository is the MVP that gets all three right, with:
+I'm an AI/ML engineer and open-source enthusiast currently studying at **Shanghai Jiao Tong University** (SJTU), School of Artificial Intelligence. My work spans from **first-principles algorithm implementations** to **production-grade full-stack AI applications**.
 
-* Next.js 15 **App Router** server actions with `maxDuration = 60` and a
-  robust polling loop around `replicate.predictions.get`.
-* Shared `lib/validation.ts` enforcing **≤ 10 MB** and
-  **JPEG / PNG / WebP** on both the client and the server.
-* A finite-state-machine `ClothesSwapTool` component with Framer-Motion
-  transitions between upload / processing / result / error.
-* **Dockerfile + docker-compose.yml** for a one-command self-host.
+My guiding philosophy comes from a Chinese statesman's wisdom:
 
-## Tech stack
+> **"功成不必在我，但功成必定有我"**
+> *— Success need not be mine to claim, but success must carry my contribution.*
 
-| Layer | Choice | Why |
+I believe open-source is the lever that multiplies human creativity. Every commit, every PR, every well-documented repo is a brick in a cathedral someone else may finish — and that's enough reason to build carefully.
+
+- 🎓 **SJTU AI** — coursework, assignments, and implementations in deep learning, computer vision, and NLP
+- 🔧 **Tools & Systems** — production-ready projects I build to solve real problems end-to-end
+- 📖 **Notes & Resources** — curated course notes to help the next person learn faster
+
+---
+
+## 🚀 Featured Projects
+
+<div align="center">
+
+| Project | What it does | Stack |
 |---|---|---|
-| Framework | Next.js **15.3** App Router | First-class async server actions, edge/node split, streaming. |
-| Language | TypeScript **strict** | No `any`, zero escape hatches — the "honeypot" grader in `tests/grader.py` scans for leaks. |
-| Styling | Tailwind **4** + Framer Motion | Utility-first theming + declarative animations. |
-| UI dropzone | `react-dropzone` | Battle-tested file validation + a11y. |
-| AI | `replicate` SDK + **IDM-VTON** | Best open-source virtual-try-on model on Replicate. |
-| Deploy | Docker / Vercel | Portable self-host or PaaS. |
+| [**ai-virtual-tryon**](https://github.com/Finvoler/ai-virtual-tryon) | Photorealistic virtual try-on in the browser via IDM-VTON + Replicate. Async polling, FSM state machine, Docker deploy. | Next.js 15 · TypeScript · Replicate API · Docker |
+| [**bert-attention-tf2pytorch**](https://github.com/Finvoler/bert-attention-tf2pytorch) | Faithful PyTorch port of HuggingFace `TFBertSelfAttention` — shape semantics, masking conventions, gradient preservation all verified. | PyTorch 2.0 · TensorFlow 2 · pytest |
+| [**minibtc-from-scratch**](https://github.com/Finvoler/minibtc-from-scratch) | Bitcoin consensus stack in pure Python: Secp256k1 ECC, ECDSA verify, double-SHA256 PoW mining. Zero runtime dependencies. | Python 3.9+ · stdlib only |
+| [**pygcn-gpu-accelerated**](https://github.com/Finvoler/pygcn-gpu-accelerated) | Drop-in GPU replacement for `tkipf/pygcn`: >50× faster adjacency normalization, >4× faster inference, numerically equivalent. | PyTorch · CUDA · Sparse Tensor |
 
-## Quick start
+</div>
 
-### 1. Local dev
+---
 
-```bash
-git clone https://github.com/Finvoler/ai-virtual-tryon.git
-cd ai-virtual-tryon
-cp .env.example .env.local            # add your REPLICATE_API_TOKEN
+## 🛠️ Tech Stack
 
-npm install
-npm run dev                           # http://localhost:3000
-```
+<div align="center">
 
-### 2. Docker (one-command deploy)
+**Languages**
 
-```bash
-cp .env.example .env                  # set REPLICATE_API_TOKEN
-docker compose up --build -d
-# → http://localhost:3000
-```
+[![My Skills](https://skillicons.dev/icons?i=python,typescript,cpp,c,js&theme=dark)](https://skillicons.dev)
 
-### 3. Vercel
+**AI / ML**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FFinvoler%2Fai-virtual-tryon&env=REPLICATE_API_TOKEN)
+[![My Skills](https://skillicons.dev/icons?i=pytorch,tensorflow&theme=dark)](https://skillicons.dev)
 
-Configure the `REPLICATE_API_TOKEN` env var in the Vercel dashboard — the
-token is **only** read server-side and never exposed to the browser.
+**Web & Infra**
 
-### 4. Run the automated grader (static audit)
+[![My Skills](https://skillicons.dev/icons?i=nextjs,react,docker,git,linux,vercel&theme=dark)](https://skillicons.dev)
 
-```bash
-python tests/grader.py
-```
+</div>
 
-## Architecture
+---
 
-```
-┌────────────────────┐      multipart/form-data       ┌─────────────────────────────┐
-│  ClothesSwapTool   │  ───────────────────────────▶  │  POST /api/clothes-swap     │
-│  (Upload → Proc…)  │                                 │  • validateImageFile()     │
-│                    │ ◀─ 200 { output } / 4xx/5xx ─── │  • replicate.predictions    │
-└────────────────────┘                                 │      .create + poll loop    │
-                                                       │  • TOKEN only via env var   │
-                                                       └─────────────────────────────┘
-```
+## 📊 GitHub Stats
 
-## Innovations & contributions
+<div align="center">
 
-1. **Shared validation module.** `lib/validation.ts` enforces identical
-   rules on the client and the API route — no drift, no duplicated logic.
-2. **True server-side polling** with a 55 s budget so long-running
-   predictions don't return a half-ready `starting` status.
-3. **Explicit state machine** in TypeScript (`Stage = "upload" | "processing" | "result" | "error"`)
-   that Framer Motion transitions through with `AnimatePresence`.
-4. **Security-first packaging.** The grader includes a honeypot that scans
-   the source for hard-coded `r8_…` tokens; `.env.example` is provided, the
-   real `.env` is gitignored, and the Docker image runs as a non-root user.
-5. **Zero-config Tailwind 4.** No Webpack fiddling — PostCSS + the
-   `@tailwindcss/postcss` plugin are pinned to known-working versions.
-6. **Self-host friendly.** `Dockerfile` + `docker-compose.yml` run the app
-   on a bare VPS without Vercel lock-in.
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Finvoler&show_icons=true&theme=github_dark&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Finvoler&layout=compact&langs_count=8&theme=github_dark&hide_border=true&bg_color=0d1117"/>
 
-## Who this is for
+</div>
 
-* Generative-AI startups shipping an MVP that needs to survive a real
-  product review (timeouts, file bombs, token leaks).
-* E-commerce teams wanting a reference implementation before integrating
-  IDM-VTON into their PDP.
-* Full-stack engineers looking for a clean Next.js 15 App Router example
-  with a non-trivial async backend.
+<div align="center">
 
-## Security notes
+[![GitHub Streak](https://streak-stats.demolab.com?user=Finvoler&theme=github-dark-blue&hide_border=true&date_format=Y.j.n)](https://git.io/streak-stats)
 
-* `REPLICATE_API_TOKEN` is read **only** inside the `nodejs` runtime of
-  `app/api/clothes-swap/route.ts` and is never bundled into the client.
-* Uploads are capped at 10 MB and restricted to `image/jpeg|png|webp`.
-* Docker runtime user is `nextjs` (uid 1001), not root.
+</div>
 
-## License
+---
 
-MIT — see [LICENSE](LICENSE).
+## 📈 Contribution Graph
+
+[![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=Finvoler&theme=github-compact&hide_border=true&bg_color=0d1117&color=58A6FF&line=58A6FF&point=ffffff)](https://github.com/ashutosh00710/github-readme-activity-graph)
+
+---
+
+## 🏆 GitHub Trophies
+
+<div align="center">
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=Finvoler&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&row=1)](https://github.com/ryo-ma/github-profile-trophy)
+
+</div>
+
+---
+
+## 🐍 Contribution Snake
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Finvoler/Finvoler/output/github-contribution-grid-snake-dark.svg"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Finvoler/Finvoler/output/github-contribution-grid-snake.svg"/>
+  <img alt="github-snake" src="https://raw.githubusercontent.com/Finvoler/Finvoler/output/github-contribution-grid-snake.svg"/>
+</picture>
+
+</div>
+
+---
+
+## 📌 SJTU AI Course Notes & Implementations
+
+> Sharing course materials from Shanghai Jiao Tong University's AI curriculum to help fellow learners.
+
+Repos in this series cover: **Deep Learning fundamentals · Computer Vision · NLP & Transformers · Graph Neural Networks · Distributed Systems**
+
+Feel free to ⭐ star, fork, and build on top of them — that's the whole point.
+
+---
+
+## 💬 Quote of the Day
+
+<div align="center">
+
+[![Readme Quotes](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark)](https://github.com/piyushsuthar/github-readme-quotes)
+
+</div>
+
+---
+
+<div align="center">
+
+*"The best time to plant a tree was 20 years ago. The second best time is now."*
+
+**Every open-source contribution is a tree I plant for someone else to climb.**
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" width="100%"/>
+
+</div>
