@@ -53,16 +53,15 @@ I believe open-source is the lever that multiplies human creativity. Every commi
 
 [![My Skills](https://skillicons.dev/icons?i=python,typescript,cpp,c,js&theme=dark)](https://skillicons.dev)
 
-**AI / ML**
+**AI / DL / ML**
 
 [![My Skills](https://skillicons.dev/icons?i=pytorch,tensorflow&theme=dark)](https://skillicons.dev)
 
 **Web & Infra**
 
-[![My Skills](https://skillicons.dev/icons?i=nextjs,react,docker,git,linux,vercel&theme=dark)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=nextjs,react,nodejs,postgres,redis,docker,linux,vercel&theme=dark)](https://skillicons.dev)
 
 </div>
-
 ---
 
 ## 📊 GitHub Stats
